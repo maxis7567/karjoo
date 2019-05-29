@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Active_View"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login.ActiveActivity">
+
+    <LinearLayout
+        android:id="@+id/Code_linearLayout_Code"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Active_RemaininS">
+
+        <EditText
+            android:id="@+id/Code_Code1"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:digits="0123456789"
+            android:fontFamily="@font/medium"
+            android:gravity="center"
+            android:hint="۱"
+            android:imeOptions="actionDone"
+            android:inputType="phone"
+            android:maxLength="1" />
+
+        <EditText
+            android:id="@+id/Code_Code2"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:digits="0123456789"
+            android:fontFamily="@font/medium"
+            android:gravity="center"
+            android:hint="۲"
+            android:imeOptions="actionDone"
+            android:inputType="phone"
+            android:maxLength="1" />
+
+        <EditText
+            android:id="@+id/Code_Code3"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:digits="0123456789"
+            android:fontFamily="@font/medium"
+            android:gravity="center"
+            android:hint="۳"
+            android:imeOptions="actionDone"
+            android:inputType="phone"
+            android:maxLength="1" />
+
+        <EditText
+            android:id="@+id/Code_Code4"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:digits="0123456789"
+            android:imeOptions="actionDone"
+            android:fontFamily="@font/medium"
+            android:gravity="center"
+            android:hint="۴"
+            android:inputType="phone"
+            android:maxLength="1" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_logo" />
+
+    <TextView
+        android:id="@+id/Active_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:fontFamily="@font/regular"
+        android:text="شماره همراه خود را برای ورود به برنامه وارد کنید"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Code_linearLayout_Code">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout7"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@drawable/shape_default_shdow"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Code_linearLayout_Code">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/Active_LeftBtn"
+                style="@style/Ripple"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:fontFamily="@font/bold"
+                android:gravity="center"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:text="تغییر شماره"
+                android:textColor="@color/textPrimaryDark2"
+                android:textSize="18sp"
+                app:backgroundTint="@color/textPrimary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/consass"
+            android:layout_width="0dp"
+            android:layout_height="76dp"
+            android:layout_weight="3"
+            android:background="@drawable/shape_default_shdow"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Code_linearLayout_Code">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/Active_rightBTN"
+                style="@style/Ripple"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/shape_corner5_bgaccent"
+                android:fontFamily="@font/bold"
+                android:gravity="center"
+                android:text="ورود"
+                android:textColor="@color/textPrimary"
+                android:textSize="18sp"
+                app:backgroundTint="@color/colorAccent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/Active_RemaininS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/regular"
+        app:layout_constraintEnd_toEndOf="@+id/Active_number"
+        app:layout_constraintStart_toStartOf="@+id/Active_number"
+        app:layout_constraintTop_toBottomOf="@+id/Active_number" />
+</androidx.constraintlayout.widget.ConstraintLayout>
