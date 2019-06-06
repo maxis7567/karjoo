@@ -33,6 +33,8 @@ dependencies {
     implementation 'com.github.stfalcon:frescoimageviewer:0.5.0'
     implementation 'com.facebook.fresco:fresco:1.13.0'
     implementation 'com.amitshekhar.android:android-networking:1.0.2'
+    implementation 'com.github.aliab:Persian-Date-Picker-Dialog:1.4'
+    implementation 'com.vincent.filepicker:MultiTypeFilePicker:1.0.8'
     implementation project(path: ':msdialog')
     implementation project(path: ':mstools')
     implementation project(path: ':msvolley')

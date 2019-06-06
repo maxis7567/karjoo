@@ -237,24 +237,28 @@ public class ActiveActivity extends AppCompatActivity {
             Api.sendCode(this, new Response.Listener<ActiveResualt>() {
                 @Override
                 public void onResponse(ActiveResualt response) {
-                    if (response.getStatus().equals("OK")) {
-                        if ("2".equals(response.getMessage())) {
-                            Intent intent = new Intent(ActiveActivity.this, CreateProfileActivity.class);
-                            intent.putExtra("token", response.getTokenId());
-                            startActivity(intent);
-                        } else {
+                    switch (response.getStatus()) {
+                        case "1":
                             DataBaseTokenID.WriteTokenID(ActiveActivity.this, response.getTokenId());
                             startActivity(new Intent(ActiveActivity.this, MainActivity.class));
-                        }
-                    } else {
-                        viewGroup.removeView(DIALOG);
-                        DIALOG = new MSdialog(ActiveActivity.this, viewGroup).ConfirmDialog(getWindow().getDecorView(), "خطا", response.getMessage(), "تایید", new MSdialog.MSdialogInterfaceConfirm() {
-                            @Override
-                            public void OnConfirmed() {
-                                viewGroup.removeView(DIALOG);
-                            }
-                        });
-                        viewGroup.addView(DIALOG);
+                            finish();
+                            break;
+                        case "2":
+                            Intent intent = new Intent(ActiveActivity.this, RegisterActivity.class);
+                            intent.putExtra("tokenId", response.getTokenId());
+                            startActivity(intent);
+                            finish();
+                            break;
+                        default:
+                            viewGroup.removeView(DIALOG);
+                            DIALOG = new MSdialog(ActiveActivity.this, viewGroup).ConfirmDialog(getWindow().getDecorView(), "خطا", response.getMessage(), "تایید", new MSdialog.MSdialogInterfaceConfirm() {
+                                @Override
+                                public void OnConfirmed() {
+                                    viewGroup.removeView(DIALOG);
+                                }
+                            });
+                            viewGroup.addView(DIALOG);
+                            break;
                     }
 
                 }
@@ -280,5 +284,10 @@ public class ActiveActivity extends AppCompatActivity {
         }
     }
 
-
+    @Override
+    public void onBackPressed() {
+        Intent intent=new Intent(this,LoginActivity.class);
+        intent.putExtra("number",getIntent().getStringExtra("number"));
+        startActivity(intent);
+    }
 }

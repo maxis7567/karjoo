@@ -29,6 +29,9 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         number = findViewById(R.id.Login_Number);
         loginBTN = findViewById(R.id.Login_LoginBTN);
+        if (getIntent().getStringExtra("number")!=null){
+            number.setText(getIntent().getStringExtra("number"));
+        }
         loginBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,7 +39,7 @@ public class LoginActivity extends AppCompatActivity {
                     Intent intent = new Intent(LoginActivity.this, ActiveActivity.class);
                     intent.putExtra("number", number.getText().toString());
                     startActivity(intent);
-
+                    finish();
                 } else {
                     number.startAnimation(AnimationUtils.loadAnimation(LoginActivity.this, R.anim.shake));
                     Vibrator v1 = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);

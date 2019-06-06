@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/FragHomeView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".main.fragments.HomeFragment">
+    tools:context=".main.fragments.home.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/FragHomeREc"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent" />
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/FragHomeLoadMore"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_gravity="bottom|center"
+        android:scaleType="centerInside"
+        android:visibility="gone"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/loading_dots" />
 </FrameLayout>
