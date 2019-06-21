@@ -1,8 +1,9 @@
 package com.hinext.maxis7567.karjoo.models;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class HomeData {
+public class HomeData implements Serializable {
     private int id;
     private String name;
     private String describe;

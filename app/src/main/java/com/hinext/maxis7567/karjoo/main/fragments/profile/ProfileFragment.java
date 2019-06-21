@@ -1,13 +1,11 @@
-package com.hinext.maxis7567.karjoo.main.fragments;
+package com.hinext.maxis7567.karjoo.main.fragments.profile;
 
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
@@ -23,7 +21,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.hinext.maxis7567.karjoo.R;
 import com.hinext.maxis7567.karjoo.login.LoginActivity;
-import com.hinext.maxis7567.karjoo.login.RegisterActivity;
 import com.hinext.maxis7567.karjoo.models.User;
 import com.hinext.maxis7567.karjoo.services.Api;
 import com.hinext.maxis7567.karjoo.services.DataBaseTokenID;
@@ -110,7 +107,7 @@ public class ProfileFragment extends Fragment {
         @Override
         public void onClick(View v) {
             if (listBTN.getText().toString().equals("لیست رزومه ها")){
-                //intent
+
             }else {
                 //intent
             }

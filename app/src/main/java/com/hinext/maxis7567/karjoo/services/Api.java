@@ -12,6 +12,7 @@ import com.google.gson.reflect.TypeToken;
 import com.hinext.maxis7567.karjoo.login.ActiveActivity;
 import com.hinext.maxis7567.karjoo.models.Active;
 import com.hinext.maxis7567.karjoo.models.ActiveResualt;
+import com.hinext.maxis7567.karjoo.models.Detail;
 import com.hinext.maxis7567.karjoo.models.HomeData;
 import com.hinext.maxis7567.karjoo.models.Jobs;
 import com.hinext.maxis7567.karjoo.models.User;
@@ -166,5 +167,27 @@ public class Api {
                 SERVER_ADDRESS +"get/request/searchId/"+String.valueOf(id)+"/1", headers,new TypeToken<ArrayList<HomeData>>(){}.getType(), dataListener, errorListener);
         a.setRetryPolicy(retryPolicy3_3);
         RequestQueueContainer.getRequestQueueContainer(context).add(a);
+    }
+
+    public static void getDetail(final Context context, final Response.Listener<Detail> dataListener, final Response.ErrorListener errorListener, final int id, final int type) {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Map<String, String> headers = new ArrayMap<>();
+                headers.put("token", DataBaseTokenID.GetTokenID(context));
+                JsonRequest<Detail> a;
+                if (type==1){
+                     a = new JsonRequest<>(JsonRequest.Method.GET,
+                            SERVER_ADDRESS +"get/request/detail/"+String.valueOf(id), headers,Detail.class, dataListener, errorListener);
+
+                }else {
+
+                    a = new JsonRequest<>(JsonRequest.Method.GET,
+                            SERVER_ADDRESS +"get/offer/detail/"+String.valueOf(id), headers,Detail.class, dataListener, errorListener);
+                }
+                a.setRetryPolicy(retryPolicy3_3);
+                RequestQueueContainer.getRequestQueueContainer(context).add(a);
+            }
+        }, random3to10());
     }
 }

@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,9 +16,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".login.RegisterActivity">
-
-        </activity>
+        <activity android:name=".main.fragments.profile.List"></activity>
+        <activity android:name=".detail.DetailsActivity" />
+        <activity android:name=".login.RegisterActivity" />
         <activity android:name=".login.ActiveActivity" />
         <activity android:name=".login.LoginActivity" />
         <activity android:name=".SplashActivity">

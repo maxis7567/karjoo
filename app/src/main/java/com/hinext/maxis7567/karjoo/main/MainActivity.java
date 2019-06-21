@@ -18,7 +18,7 @@ import android.widget.TextView;
 import com.hinext.maxis7567.karjoo.R;
 import com.hinext.maxis7567.karjoo.main.fragments.home.HomeFragment;
 import com.hinext.maxis7567.karjoo.main.fragments.offer.JobFragment;
-import com.hinext.maxis7567.karjoo.main.fragments.ProfileFragment;
+import com.hinext.maxis7567.karjoo.main.fragments.profile.ProfileFragment;
 import com.hinext.maxis7567.karjoo.main.fragments.request.RequestFragment;
 import com.maxis7567.msdialog.MSdialog;
 import com.onurkaganaldemir.ktoastlib.KToast;

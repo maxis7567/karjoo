@@ -1,6 +1,7 @@
-package com.hinext.maxis7567.karjoo.main.fragments;
+package com.hinext.maxis7567.karjoo.main.fragments.profile;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.hinext.maxis7567.karjoo.detail.DetailsActivity;
 import com.hinext.maxis7567.karjoo.R;
 import com.hinext.maxis7567.karjoo.models.HomeData;
 import com.hinext.maxis7567.karjoo.services.Api;
@@ -53,7 +55,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent=new Intent(context, DetailsActivity.class);
+                intent.putExtra("data",homeDataList.get(holder.getAdapterPosition()));
+                context.startActivity(intent);
             }
         });
         if (getItemCount() - 1 == holder.getAdapterPosition()) {
