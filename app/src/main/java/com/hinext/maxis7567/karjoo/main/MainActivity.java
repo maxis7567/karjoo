@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     private View DIALOG;
     private ViewGroup viewGroup;
     private boolean doubleBackToExitPressedOnce=false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

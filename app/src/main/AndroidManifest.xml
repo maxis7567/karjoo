@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.hinext.maxis7567.karjoo">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -14,9 +15,13 @@
         android:label="@string/app_name"
         android:networkSecurityConfig="@xml/net_policies"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true"
+        android:supportsRtl="false"
+        tools:replace="android:supportsRtl"
         android:theme="@style/AppTheme">
-        <activity android:name=".main.fragments.profile.List"></activity>
+        <activity android:name=".main.fragments.profile.create.file.AddFileActivity"></activity>
+        <activity android:name=".main.fragments.profile.create.CreateActivity" />
+        <activity android:name=".main.fragments.profile.edit.EditProfileActivity" />
+        <activity android:name=".main.fragments.profile.list.ListActivity" />
         <activity android:name=".detail.DetailsActivity" />
         <activity android:name=".login.RegisterActivity" />
         <activity android:name=".login.ActiveActivity" />

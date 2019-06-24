@@ -51,6 +51,7 @@ public class RequestFragment extends Fragment {
     private LottieAnimationView loadMore;
     private List<HomeData> data=new ArrayList<>();
     private int page=1;
+    public static boolean needRefresh=false;
 
     public RequestFragment() {
         // Required empty public constructor
@@ -75,7 +76,7 @@ public class RequestFragment extends Fragment {
         search=view.findViewById(R.id.FragJobSearch);
         loadMore=view.findViewById(R.id.FragJobLoadMore);
         LOADING=new MSdialog(context,viewGroup).Loading(activity.getWindow().getDecorView());
-        if (data.size()<=0){
+        if (data.size()<=0||needRefresh){
             page=1;
             viewGroup.addView(LOADING);
             getData();

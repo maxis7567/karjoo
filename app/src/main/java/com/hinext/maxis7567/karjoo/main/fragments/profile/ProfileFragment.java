@@ -2,6 +2,7 @@ package com.hinext.maxis7567.karjoo.main.fragments.profile;
 
 
 import android.app.Activity;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -21,6 +22,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.hinext.maxis7567.karjoo.R;
 import com.hinext.maxis7567.karjoo.login.LoginActivity;
+import com.hinext.maxis7567.karjoo.login.RegisterActivity;
+import com.hinext.maxis7567.karjoo.main.fragments.profile.create.CreateActivity;
+import com.hinext.maxis7567.karjoo.main.fragments.profile.edit.EditProfileActivity;
+import com.hinext.maxis7567.karjoo.main.fragments.profile.list.ListActivity;
 import com.hinext.maxis7567.karjoo.models.User;
 import com.hinext.maxis7567.karjoo.services.Api;
 import com.hinext.maxis7567.karjoo.services.DataBaseTokenID;
@@ -48,6 +53,7 @@ public class ProfileFragment extends Fragment {
     private TextView name,listBTN,province,couny,city,address;
     private Button addBTN;
     private User user;
+    public static boolean needRefresh=false;
 
 
     public ProfileFragment() {
@@ -62,7 +68,7 @@ public class ProfileFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view=inflater.inflate(R.layout.fragment_profile, container, false);
         viewGroup=view.findViewById(R.id.FragProfileView);
@@ -80,6 +86,7 @@ public class ProfileFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 DataBaseTokenID.ResetTokenID(context);
+                ProfileFragment.needRefresh=true;
                 DIALOG= new MSdialog(context,viewGroup).ConfirmDialog(activity.getWindow().getDecorView()
                         , "ورود / ثبت نام", "برای استفاده از این قسمت باید وارد حساب خود شوید",
                         "ورود / ثبت نام", new MSdialog.MSdialogInterfaceConfirm() {
@@ -94,7 +101,10 @@ public class ProfileFragment extends Fragment {
     settingBTN.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            //Intent
+            Intent intent=new Intent(context, EditProfileActivity.class);
+            intent.putExtra("user",user);
+            startActivity(intent);
+
         }
     });
     image.setOnClickListener(new View.OnClickListener() {
@@ -106,17 +116,15 @@ public class ProfileFragment extends Fragment {
     listBTN.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if (listBTN.getText().toString().equals("لیست رزومه ها")){
-
-            }else {
-                //intent
-            }
+           startActivity(new Intent(context, ListActivity.class));
         }
     });
     addBTN.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            //intent
+            Intent intent=new Intent(context, CreateActivity.class);
+            intent.putExtra("type",String.valueOf(user.getType()));
+            startActivity(intent);
         }
     });
         return view;
@@ -135,7 +143,8 @@ public class ProfileFragment extends Fragment {
                         }
                     });
             viewGroup.addView(DIALOG);
-        }else if (user==null){
+        }else if (user==null||needRefresh){
+            needRefresh=false;
             DIALOG=new MSdialog(context,viewGroup).Loading(activity.getWindow().getDecorView());
             viewGroup.addView(DIALOG);
             Api.getUserData(context, new Response.Listener<User>() {

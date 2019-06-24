@@ -32,6 +32,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.hinext.maxis7567.karjoo.R;
 import com.hinext.maxis7567.karjoo.main.MainActivity;
+import com.hinext.maxis7567.karjoo.main.fragments.profile.ProfileFragment;
 import com.hinext.maxis7567.karjoo.models.Active;
 import com.hinext.maxis7567.karjoo.models.ActiveResualt;
 import com.hinext.maxis7567.karjoo.services.Api;
@@ -241,6 +242,7 @@ public class ActiveActivity extends AppCompatActivity {
                         case "1":
                             DataBaseTokenID.WriteTokenID(ActiveActivity.this, response.getTokenId());
                             startActivity(new Intent(ActiveActivity.this, MainActivity.class));
+                            ProfileFragment.needRefresh=true;
                             finish();
                             break;
                         case "2":

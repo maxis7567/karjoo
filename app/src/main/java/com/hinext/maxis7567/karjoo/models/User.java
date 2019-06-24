@@ -2,7 +2,9 @@ package com.hinext.maxis7567.karjoo.models;
 
 import com.google.gson.annotations.SerializedName;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     private  String bError;
     private  String bStatus;
 

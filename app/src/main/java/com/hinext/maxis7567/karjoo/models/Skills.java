@@ -1,22 +1,33 @@
 package com.hinext.maxis7567.karjoo.models;
 
-public class Skills {
-    private String skills;
-    private String desc;
+import java.io.Serializable;
 
-    public String getDesc() {
-        return desc;
+public class Skills implements Serializable {
+    private int id;
+    private String name;
+    private String describe;
+
+    public String getDescribe() {
+        return describe;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDescribe(String describe) {
+        this.describe = describe;
     }
 
-    public String getSkills() {
-        return skills;
+    public String getName() {
+        return name;
     }
 
-    public void setSkills(String skills) {
-        this.skills = skills;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

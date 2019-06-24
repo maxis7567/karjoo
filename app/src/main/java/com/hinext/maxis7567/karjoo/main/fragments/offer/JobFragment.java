@@ -49,6 +49,7 @@ public class JobFragment extends Fragment {
     private LottieAnimationView loadMore;
     private List<HomeData> data=new ArrayList<>();
     private int page=1;
+    public static boolean needRefresh=false;
 
     public JobFragment() {
         // Required empty public constructor
@@ -73,7 +74,8 @@ public class JobFragment extends Fragment {
         search=view.findViewById(R.id.FragJobSearch);
         loadMore=view.findViewById(R.id.FragJobLoadMore);
         LOADING=new MSdialog(context,viewGroup).Loading(activity.getWindow().getDecorView());
-        if (data.size()<=0){
+        if (data.size()<=0||needRefresh){
+            needRefresh=false;
             page=1;
             viewGroup.addView(LOADING);
             getData();
@@ -190,8 +192,8 @@ public class JobFragment extends Fragment {
         });
         searchAdapter=new SearchAdapter(context, new ArrayList<Jobs>(), new SearchAdapter.ISearch() {
             @Override
-            public void onClick(int id) {
-                     getJobListSearched(id);
+            public void onClick(Jobs id) {
+                     getJobListSearched(id.getId());
             }
         });
         searchRec.setLayoutManager(new LinearLayoutManager(context,RecyclerView.VERTICAL,false));

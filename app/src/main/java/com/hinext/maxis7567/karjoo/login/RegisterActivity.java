@@ -27,8 +27,10 @@ import com.androidnetworking.interfaces.UploadProgressListener;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.hinext.maxis7567.karjoo.R;
+import com.hinext.maxis7567.karjoo.main.fragments.profile.ProfileFragment;
 import com.hinext.maxis7567.karjoo.models.Province;
 
+import com.hinext.maxis7567.karjoo.models.User;
 import com.hinext.maxis7567.karjoo.services.DataBaseTokenID;
 import com.hinext.maxis7567.mstools.RawStringReader;
 import com.maxis7567.msdialog.MSdialog;
@@ -91,6 +93,8 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
         setContentView(R.layout.activity_register);
+
+
         viewGroup = findViewById(R.id.RegisterView);
         provinceBTN = findViewById(R.id.FragProfileProvince);
         countyBTN = findViewById(R.id.FragProfileCounty);
@@ -316,7 +320,7 @@ public class RegisterActivity extends AppCompatActivity {
         pd = new ProgressDialog(RegisterActivity.this);
         pd.setMax(100);
         pd.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-        AndroidNetworking.upload("http://10.0.2.2:8080/v1/user/active")
+        AndroidNetworking.upload("http://192.168.1.47:8080/v1/user/active")
                 .addHeaders("Accept", "application/json")
                 .addHeaders("token", getIntent().getStringExtra("tokenId"))
                 .addMultipartFile("image",file)
@@ -346,11 +350,13 @@ public class RegisterActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         DataBaseTokenID.WriteTokenID(RegisterActivity.this,getIntent().getStringExtra("tokenId"));
+                        ProfileFragment.needRefresh=true;
                         finish();
                     }
 
                     @Override
                     public void onError(ANError error) {
+                        pd.cancel();
                         viewGroup.removeView(DIALOG);
                         DIALOG = new MSdialog(RegisterActivity.this, viewGroup).DefaultDialog(getWindow().getDecorView(), "خطا", "مشکل در ارتبات با سرور", "تلاش دوباره",
                                 new MSdialog.MSdialogInterfaceDefault() {

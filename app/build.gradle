@@ -36,6 +36,7 @@ dependencies {
     implementation 'com.amitshekhar.android:android-networking:1.0.2'
     implementation 'com.github.aliab:Persian-Date-Picker-Dialog:1.4'
     implementation 'com.vincent.filepicker:MultiTypeFilePicker:1.0.8'
+    implementation 'com.beloo.widget:ChipsLayoutManager:0.3.7@aar'
     implementation project(path: ':msdialog')
     implementation project(path: ':mstools')
     implementation project(path: ':msvolley')

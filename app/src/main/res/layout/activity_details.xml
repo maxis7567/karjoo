@@ -30,7 +30,7 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_marginTop="8dp"
-                    android:layout_marginRight="8dp"
+                    android:layout_marginRight="16dp"
                     android:src="@drawable/ic_man"
                     app:civ_border_width="1dp"
                     app:layout_constraintRight_toRightOf="parent"
@@ -68,9 +68,9 @@
                     android:layout_marginStart="8dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginTop="8dp"
+                    android:background="@drawable/shape_boarder10_bgwhite_strokegrey"
                     android:text="تماس"
                     android:textColor="@color/colorPrimary"
-                    android:background="@drawable/shape_boarder10_bgwhite_strokegrey"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 

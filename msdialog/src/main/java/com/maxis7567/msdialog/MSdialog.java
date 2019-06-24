@@ -154,6 +154,36 @@ public class MSdialog {
         });
         return dialogView;
     }
+    public View SpecificsDialog(View decorView, final MSdialogInterfaceSpecifics OnClose) {
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View dialogView = inflater.inflate(R.layout.specifics_dialog, parent, false);
+        Button save,cancell;
+        final EditText editText;
+        save=dialogView.findViewById(R.id.SpecificsSave);
+        cancell=dialogView.findViewById(R.id.SpecificsCancell);
+        editText=dialogView.findViewById(R.id.SpecificsEditBox);
+        blurView = dialogView.findViewById(R.id.message_blur);
+        ViewGroup rootView = decorView.findViewById(android.R.id.content);
+        Drawable windowBackground = decorView.getBackground();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            blurView.setupWith(rootView).windowBackground(windowBackground)
+                    .blurAlgorithm(new RenderScriptBlur(context)) //Preferable algorithm, needs RenderScript support mode enabled
+                    .blurRadius(10);
+        }
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                OnClose.OnConfirmed(editText.getText().toString());
+            }
+        });
+        cancell.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                OnClose.OnCancel();
+            }
+        });
+        return dialogView;
+    }
 
     public View Spinner(View decorView, List<SpinnerProvince> list, final MSdialogInterfaceSpinner OnSelect) {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -279,6 +309,11 @@ public class MSdialog {
 
     public interface MSdialogInterfaceDefault {
         void OnConfirmed();
+
+        void OnCancel();
+    }
+    public interface MSdialogInterfaceSpecifics {
+        void OnConfirmed(String detail);
 
         void OnCancel();
     }

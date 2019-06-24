@@ -43,6 +43,7 @@ public class HomeFragment extends Fragment {
     private RecyclerView recyclerView;
     private Adapter adapter;
     private View DIALOG;
+    public static boolean needRefresh=false;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -63,7 +64,8 @@ public class HomeFragment extends Fragment {
         recyclerView = view.findViewById(R.id.FragHomeREc);
         loadmore = view.findViewById(R.id.FragHomeLoadMore);
 
-        if (dataList.size() == 0) {
+        if (dataList.size() == 0||needRefresh) {
+            needRefresh=false;
             LOADING = new MSdialog(context, viewGroup).Loading(activity.getWindow().getDecorView());
             viewGroup.addView(LOADING);
             getData();

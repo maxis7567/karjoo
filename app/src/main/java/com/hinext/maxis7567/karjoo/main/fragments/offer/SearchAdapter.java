@@ -38,12 +38,12 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         holder.view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                iSearch.onClick(jobsList.get(holder.getAdapterPosition()).getId());
+                iSearch.onClick(jobsList.get(holder.getAdapterPosition()));
             }
         });
     }
-    interface ISearch{
-        void onClick(int id);
+    public interface ISearch{
+        void onClick(Jobs jobs);
     }
     @Override
     public int getItemCount() {
@@ -63,7 +63,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         }
     }
 
-    void addAll(List<Jobs> list){
+    public void addAll(List<Jobs> list){
         jobsList.clear();
         jobsList.addAll(list);
         notifyDataSetChanged();

@@ -5,6 +5,7 @@ import java.util.Date;
 
 public class HomeData implements Serializable {
     private int id;
+    private String title;
     private String name;
     private String describe;
     private String province;
@@ -76,5 +77,13 @@ public class HomeData implements Serializable {
 
     public void setDate(long date) {
         this.date = date;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

@@ -135,7 +135,7 @@ public class DetailsActivity extends AppCompatActivity {
         }
         if (response.getFile().size()>0){
             fileAdapter=new FileAdapter(this,response.getFile());
-            filesRec.setLayoutManager(new RtlGridLayoutManager(this,displayMetricsUtils.getScreenDimensionsInDIP().x/90,RecyclerView.VERTICAL,false));
+            filesRec.setLayoutManager(new RtlGridLayoutManager(this,displayMetricsUtils.getScreenDimensionsInDIP().x/100,RecyclerView.VERTICAL,false));
         }else {
             fileText.setVisibility(View.GONE);
             filesRec.setVisibility(View.GONE);

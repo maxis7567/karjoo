@@ -84,9 +84,10 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         }
 
         private CircleImageView image;
-        private TextView name,date,address,describe;
+        private TextView name,date,address,describe,title;
         public ViewHolder(@NonNull View v) {
             super(v);
+            title=v.findViewById(R.id.ItemHomeTitle);
             view=v.findViewById(R.id.ItemHomeView);
             image=v.findViewById(R.id.ItemHomeImage);
             name=v.findViewById(R.id.ItemHomeName);
@@ -136,6 +137,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             address.setText(data.getProvince()+"<"+data.getCity());
             date.setText(JalaliCalendar.gregorian_to_jalali(String.valueOf(data.getDate()/1000)));
             describe.setText(data.getDescribe());
+            title.setText(data.getTitle());
         }
     }
 }

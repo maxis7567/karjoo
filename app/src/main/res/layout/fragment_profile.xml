@@ -360,13 +360,12 @@
                             android:id="@+id/FragProfileName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
                             android:fontFamily="@font/extra_bold"
                             android:textColor="@color/textPrimary"
                             android:textSize="18sp"
-                            android:layout_margin="8dp"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintRight_toRightOf="@id/FragProfileImage"
-                            app:layout_constraintLeft_toLeftOf="@id/FragProfileImage" />
+                            app:layout_constraintRight_toRightOf="@id/FragProfileImage" />
 
                         <ImageView
                             android:id="@+id/FragProfileExist"
