@@ -88,12 +88,11 @@ public class AddFileActivity extends AppCompatActivity {
             pd.setTitle(String.valueOf(i+1)+"/"+String.valueOf(adapter.list.size()));
 
             pd.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-            AndroidNetworking.upload("http://192.168.1.47:8080/v1/upload")
-                    .addHeaders("Accept", "application/json")
+            AndroidNetworking.upload("http://192.168.1.104:8080/v1/upload")
                     .addHeaders("token", DataBaseTokenID.GetTokenID(this))
-                    .addMultipartFile("file", new File(adapter.list.get(i).getPath()))
                     .addHeaders("id",getIntent().getStringExtra("id"))
                     .addHeaders("desc",adapter.list.get(i).getDesc())
+                    .addMultipartFile("file", new File(adapter.list.get(i).getPath()))
                     .setTag("upload")
                     .setPriority(Priority.HIGH)
                     .build()

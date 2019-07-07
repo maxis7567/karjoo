@@ -136,7 +136,7 @@
                     android:layout_weight="4"
                     android:fontFamily="@font/medium"
                     android:gravity="center"
-                    android:text="فرست های شغلی"
+                    android:text="فرصت های شغلی"
                     android:textColor="@color/backgroundGrey2"
                     android:textSize="10sp" />
 

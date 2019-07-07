@@ -320,7 +320,7 @@ public class RegisterActivity extends AppCompatActivity {
         pd = new ProgressDialog(RegisterActivity.this);
         pd.setMax(100);
         pd.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-        AndroidNetworking.upload("http://192.168.1.47:8080/v1/user/active")
+        AndroidNetworking.upload("http://192.168.1.104:8080/v1/user/active")
                 .addHeaders("Accept", "application/json")
                 .addHeaders("token", getIntent().getStringExtra("tokenId"))
                 .addMultipartFile("image",file)

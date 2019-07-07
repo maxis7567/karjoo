@@ -249,7 +249,7 @@
                     android:singleLine="true"
                     android:fontFamily="@font/medium"
                     android:gravity="center"
-                    android:hint="شماره تماس برای ارطبات با شما"
+                    android:hint="شماره تماس برای ارتباط با شما"
                     android:padding="8dp"
                     android:textColor="@color/textPrimaryDark2"
                     android:textSize="14sp"

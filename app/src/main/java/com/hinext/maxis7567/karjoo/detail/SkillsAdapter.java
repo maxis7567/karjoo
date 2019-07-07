@@ -3,6 +3,7 @@ package com.hinext.maxis7567.karjoo.detail;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,6 +40,11 @@ public class SkillsAdapter extends RecyclerView.Adapter<SkillsAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         holder.name.setText(fileList.get(position).getName());
+        if (isSkill&&fileList.get(holder.getAdapterPosition()).getDescribe()!=null){
+            Drawable img = context.getResources().getDrawable( R.drawable.ic_comment );
+            img.setBounds( 0, 0, 60, 60 );
+            holder.name.setCompoundDrawables(null,null,img,null);
+        }
             holder.name.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -51,6 +57,7 @@ public class SkillsAdapter extends RecyclerView.Adapter<SkillsAdapter.ViewHolder
                         title.setGravity(Gravity.RIGHT);
                         title.setBackgroundColor(Color.WHITE);
                         title.setTextSize(22);
+
                         new AlertDialog.Builder(context)
                                 .setCustomTitle(title)
                                 .setMessage(fileList.get(holder.getAdapterPosition()).getDescribe())

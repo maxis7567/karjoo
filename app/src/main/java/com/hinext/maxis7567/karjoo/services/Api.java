@@ -30,8 +30,8 @@ import java.util.Map;
 import java.util.Random;
 
 public class Api {
-    private static String SERVER_ADDRESS = "http://192.168.1.47:8080/v1/";
-    public static String SERVER_ADDRESS_IMAGE = "http://192.168.1.47";
+    private static String SERVER_ADDRESS = "http://192.168.1.104:8080/v1/";
+    public static String SERVER_ADDRESS_IMAGE = "http://192.168.1.104";
     private static RetryPolicy retryPolicy10_3=new DefaultRetryPolicy(100000,0,0);
     private static RetryPolicy retryPolicy6_3=new DefaultRetryPolicy(6000,0,0);
     private static RetryPolicy retryPolicy6_1=new DefaultRetryPolicy(6000,0,0);

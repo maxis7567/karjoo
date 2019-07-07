@@ -376,7 +376,7 @@ public class EditProfileActivity extends AppCompatActivity {
         pd = new ProgressDialog(EditProfileActivity.this);
         pd.setMax(100);
         pd.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
-        AndroidNetworking.upload("http://192.168.1.47:8080/v1/user/edit")
+        AndroidNetworking.upload("http://192.168.1.104:8080/v1/user/edit")
                 .addHeaders("Accept", "application/json")
                 .addHeaders("token", DataBaseTokenID.GetTokenID(this))
                 .addMultipartFile("image",file)

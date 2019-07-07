@@ -47,26 +47,32 @@ public class FileAdapter extends RecyclerView.Adapter<FileAdapter.ViewHolder> {
             @Override
             public void onClick(View view) {
                 if (fileList.get(holder.getAdapterPosition()).getDesc()!=null) {
-                    TextView title = new TextView(context);
-                    title.setText("توضیحات");
-                    title.setBackgroundColor(Color.BLACK);
-                    title.setPadding(10, 15, 15, 10);
-                    title.setGravity(Gravity.RIGHT);
-                    title.setBackgroundColor(Color.WHITE);
-                    title.setTextSize(22);
-                    new AlertDialog.Builder(context)
-                            .setCustomTitle(title)
-                            .setMessage(fileList.get(holder.getAdapterPosition()).getDesc())
-                            .setCancelable(true)
-                            .setPositiveButton("دانلود", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialogInterface, int i) {
-                                    Intent iaa = new Intent(Intent.ACTION_VIEW);
-                                    iaa.setData(Uri.parse(Api.SERVER_ADDRESS_IMAGE + fileList.get(holder.getAdapterPosition()).getUrl()));
-                                    context.startActivity(iaa);
-                                }
-                            })
-                            .show();
+                    if (fileList.get(holder.getAdapterPosition()).getDesc().length()>0) {
+                        TextView title = new TextView(context);
+                        title.setText("توضیحات");
+                        title.setBackgroundColor(Color.BLACK);
+                        title.setPadding(10, 15, 15, 10);
+                        title.setGravity(Gravity.RIGHT);
+                        title.setBackgroundColor(Color.WHITE);
+                        title.setTextSize(22);
+                        new AlertDialog.Builder(context)
+                                .setCustomTitle(title)
+                                .setMessage(fileList.get(holder.getAdapterPosition()).getDesc())
+                                .setCancelable(true)
+                                .setPositiveButton("دانلود", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int i) {
+                                        Intent iaa = new Intent(Intent.ACTION_VIEW);
+                                        iaa.setData(Uri.parse(Api.SERVER_ADDRESS_IMAGE + fileList.get(holder.getAdapterPosition()).getUrl()));
+                                        context.startActivity(iaa);
+                                    }
+                                })
+                                .show();
+                    }else {
+                        Intent iaa = new Intent(Intent.ACTION_VIEW);
+                        iaa.setData(Uri.parse(Api.SERVER_ADDRESS_IMAGE + fileList.get(holder.getAdapterPosition()).getUrl()));
+                        context.startActivity(iaa);
+                    }
                 }else {
                     Intent iaa = new Intent(Intent.ACTION_VIEW);
                     iaa.setData(Uri.parse(Api.SERVER_ADDRESS_IMAGE + fileList.get(holder.getAdapterPosition()).getUrl()));

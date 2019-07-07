@@ -66,8 +66,10 @@ public class HomeFragment extends Fragment {
 
         if (dataList.size() == 0||needRefresh) {
             needRefresh=false;
+            dataList=new ArrayList<>();
             LOADING = new MSdialog(context, viewGroup).Loading(activity.getWindow().getDecorView());
             viewGroup.addView(LOADING);
+            page=1;
             getData();
         }else setUpView();
         return view;

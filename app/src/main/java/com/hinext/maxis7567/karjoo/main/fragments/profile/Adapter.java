@@ -2,6 +2,7 @@ package com.hinext.maxis7567.karjoo.main.fragments.profile;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,6 +40,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
         this.homeDataList.addAll( homeDataList);
         this.onLoadMoreRecyclerView = onLoadMoreRecyclerView;
         displayMetricsUtils=new DisplayMetricsUtils(context);
+
     }
 
     @NonNull
@@ -138,6 +140,15 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             date.setText(JalaliCalendar.gregorian_to_jalali(String.valueOf(data.getDate()/1000)));
             describe.setText(data.getDescribe());
             title.setText(data.getTitle());
+            if (data.getType()==1){
+                Drawable img = context.getResources().getDrawable( R.drawable.ic_businessman );
+                img.setBounds( 0, 0, 60, 60 );
+                date.setCompoundDrawables(null,null,img,null);
+            }else {
+                Drawable img = context.getResources().getDrawable( R.drawable.ic_hiring );
+                img.setBounds( 0, 0, 60, 60 );
+                date.setCompoundDrawables(null,null,img,null);
+            }
         }
     }
 }

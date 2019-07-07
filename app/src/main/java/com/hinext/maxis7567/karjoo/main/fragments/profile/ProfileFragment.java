@@ -144,6 +144,9 @@ public class ProfileFragment extends Fragment {
                     });
             viewGroup.addView(DIALOG);
         }else if (user==null||needRefresh){
+            if (needRefresh){
+                viewGroup.removeView(DIALOG);
+            }
             needRefresh=false;
             DIALOG=new MSdialog(context,viewGroup).Loading(activity.getWindow().getDecorView());
             viewGroup.addView(DIALOG);
